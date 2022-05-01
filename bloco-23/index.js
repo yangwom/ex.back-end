@@ -35,11 +35,18 @@ app.get('/authors/:id', async (req, res) => {
 });
 
 app.get('/books', async (req, res) => {
-    const { author } = req.query
-    console.log(author);
+ const { author } = req.query
  const dataBook  = await databook.findQuery(author)
+ if(!dataBook.length) return res.status(404).json({ message: 'Not found'});
 return res.status(200).json(dataBook)
 })
+
+app.get('/books/:id', async (req, res)=> {
+const { id } = req.params;
+const dataBook = await databook.findId(id)
+console.log(dataBook)
+return res.status(200).json(dataBook);
+});
 
 
 
