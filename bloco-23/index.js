@@ -1,6 +1,7 @@
 const express = require('express');
 const database = require('./models/authors')
 const databook = require('./models/book')
+const { authorIdValid, titleValid} = require('./middleware/isValid')
 const app = express();
 
 const PORT = 3000;
@@ -44,9 +45,13 @@ return res.status(200).json(dataBook)
 app.get('/books/:id', async (req, res)=> {
 const { id } = req.params;
 const dataBook = await databook.findId(id)
-console.log(dataBook)
+if(!dataBook) return res.status(404).json({ message: 'not found'});
 return res.status(200).json(dataBook);
 });
+
+app.post('/books', titleValid, authorIdValid, (req, res)=> {
+return res.status(201).json({ message: 'livro criado com sucesso'})
+})
 
 
 

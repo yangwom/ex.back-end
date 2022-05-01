@@ -18,7 +18,6 @@ return data.map(calmeCasebooks.calmeCasebooks).filter(({ authorId }) =>  authorI
 const findId = async (idParams) => {
     const query = 'SELECT * FROM model_example.books WHERE id = ?'
     const [ data ] = await connection.execute(query, [idParams])
-    console.log(data)
     return data.map(calmeCasebooks.calmeCasebooks).find((book) => book.id === Number(idParams));
 }
 
