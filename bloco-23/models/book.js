@@ -21,8 +21,14 @@ const findId = async (idParams) => {
     return data.map(calmeCasebooks.calmeCasebooks).find((book) => book.id === Number(idParams));
 }
 
+const createBook = async (title, authorId) => {
+const query = 'INSERT INTO model_example.books (title, author_id) VALUES (?,?) '
+return await connection.execute(query, [title, authorId]);
+}
+
  module.exports = {
      getAllBook,
      findQuery,
      findId,
+     createBook,
  }

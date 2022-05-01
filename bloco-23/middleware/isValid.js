@@ -1,6 +1,8 @@
 const titleValid = (req, res, next) => {
 const { title } = req.body
-if(!title || !title.length) return res.status(400).json({ message: 'os campos não pode ser vazios'});
+if(!title || !title.length ) return res.status(400).json({ message: 'os campos não pode ser vazios'});
+
+if(title.length < 3) return res.status(400).json({message: 'oi'});
 next();
 }
 

@@ -49,7 +49,9 @@ if(!dataBook) return res.status(404).json({ message: 'not found'});
 return res.status(200).json(dataBook);
 });
 
-app.post('/books', titleValid, authorIdValid, (req, res)=> {
+app.post('/books', titleValid, authorIdValid, async (req, res)=> {
+    const { title, author_id } = req.body
+    await databook.createBook(title, author_id);
 return res.status(201).json({ message: 'livro criado com sucesso'})
 })
 
