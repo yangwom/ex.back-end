@@ -1,5 +1,6 @@
 const express = require('express');
 const database = require('./models/authors')
+const databook = require('./models/book')
 const app = express();
 
 const PORT = 3000;
@@ -32,6 +33,13 @@ app.get('/authors/:id', async (req, res) => {
 
     res.status(200).json(author);
 });
+
+app.get('/books', async (req, res) => {
+    const { author } = req.query
+    console.log(author);
+ const dataBook  = await databook.findQuery(author)
+return res.status(200).json(dataBook)
+})
 
 
 

@@ -1,5 +1,5 @@
 const getNewauthor = ({ id, firstName, middleName, lastName }) => {
-    const fullName = [firstName, middleName, lastName ].filter(Boolean).join(" ")
+    const fullName = [firstName, middleName, lastName ].map((data) => data).join(" ")
     return {
         id,
         firstName,

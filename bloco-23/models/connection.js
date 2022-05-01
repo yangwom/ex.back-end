@@ -7,4 +7,5 @@ const connection = mysql.createPool({
     database: 'model_example'
 })
 
+
 module.exports = connection;

@@ -7,7 +7,7 @@ const getAll = async () => {
     );
     console.log(authors);
 
-    return authors.map(organizeKeys).map(fullNameAuthor);
+    return authors.map(organizeKeys.organizeKeys).map(fullNameAuthor);
 }
 
 const findId = async (id) => {

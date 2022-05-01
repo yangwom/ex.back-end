@@ -5,4 +5,16 @@ const organizeKeys = (authors) => ({
     lastName: authors.last_name,
     });
 
-module.exports = organizeKeys;
+ const calmeCasebooks = ({ id, title, author_id }) => {
+        return {
+         id,
+         title,
+         authorId: author_id
+         }
+     }
+     
+
+module.exports = {
+organizeKeys,
+calmeCasebooks,
+};
