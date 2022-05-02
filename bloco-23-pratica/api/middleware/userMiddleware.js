@@ -13,7 +13,7 @@ const validateLastName = (req, res, next) => {
 
 const validateEmail = (req, res, next) => {
 	const { email } = req.body;
-	if (!email) return next({ status: 400, error: 'true', message: 'esse campo é obrigatorio'});
+	if (!email) return next({ status: 400, error: true, message: 'esse campo é obrigatorio'});
 	next();
 };
 
