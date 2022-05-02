@@ -37,6 +37,10 @@ router.put('/:id', validateName, validateLastName, validateEmail, validatepasswo
 	const { id } = req.params;
 	const { firstName, lastName, email, password } = req.body;
 	const updadte = await dataUser.updateUser(id, firstName, lastName, email, password);
+	if(!updadte) return res.status(404).json({
+		'error': true,
+		'message': 'Usuário não encontrado'
+	});
 	return res.status(200).json(updadte);
 	
 });

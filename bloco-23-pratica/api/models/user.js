@@ -18,10 +18,10 @@ const foundId = async (paramsId) => {
 	return data.find((user) => user.id === Number(paramsId));
 };
 
-const updateUser = async (id, firstName, lastName, email, password)  => {
+const updateUser = async (id, firstName, lastName, email)  => {
 	const query = 'UPDATE model_example.user SET first_name = ?, last_name = ?, email = ? WHERE id = ?';	
-	const [ data ]=	await connection.execute(query, [id, firstName, lastName, email, password]);
-	return data.find((user) => user.id === Number(id));
+	await connection.execute(query, [firstName, lastName, email, id]);
+	return await foundId(id);
 };
 
 

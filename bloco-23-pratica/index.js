@@ -1,6 +1,6 @@
 const express = require('express');
-const routerUser = require('./routers/routerUser');
-const errorMiddleware = require('./middleware/errorMiddleware');
+const routerUser = require('./api/routers/routerUser');
+const errorMiddleware = require('./api/middleware/errorMiddleware');
 
 const app = express();
 
