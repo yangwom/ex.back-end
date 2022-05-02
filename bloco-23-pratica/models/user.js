@@ -6,6 +6,12 @@ const getAllUser = async () => {
 	return data;
 }; 
 
+const createdUser = async (firstName, lastName, email) => {
+	const query = 'INSERT INTO model_example.user (first_name, last_name, email) VALUES(?,?,?)';
+	const created = await connection.execute(query, [firstName, lastName, email]);
+	return created;
+};
 module.exports = {
-	getAllUser
+	getAllUser,
+	createdUser
 };

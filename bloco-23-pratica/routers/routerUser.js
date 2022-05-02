@@ -10,9 +10,11 @@ const {
 const router = express.Router();
 
 
-router.post('/', validateName, validateLastName, validatepassword, validateEmail, (req, res) => {
-	return res.status(201).json({ message: 'created'});
-
+router.post('/', validateName, validateLastName, validatepassword, validateEmail, async (req, res) => {
+	const { firstName, lastName, email } = req.body;
+	await dataUser.createdUser(firstName, lastName, email);
+	return res.status(201).json({ firstName, lastName, email });
+	
 });
 
 router.get('/', async (req, res) => {
