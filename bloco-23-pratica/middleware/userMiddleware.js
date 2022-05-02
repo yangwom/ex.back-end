@@ -21,7 +21,7 @@ const validatepassword = (req, res, next) => {
 	const { password } = req.body;
 	if (!password) return next({ status: 400, error: true, message: 'esse campo é obrigatorio'});
 	if (password.length < 6) return next({ status: 400, error: true, message: 'no minimo 6 caracteres'});
-	if(typeof password !== 'string') return next({ status: 400, error: true, message: 'isNotNumber'});
+	if(typeof password !== 'string') return next({ status: 400, error: true, message: 'NotNumber'});
 	next();
 };
 
