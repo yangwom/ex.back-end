@@ -11,7 +11,14 @@ const createdUser = async (firstName, lastName, email) => {
 	const created = await connection.execute(query, [firstName, lastName, email]);
 	return created;
 };
+
+const foundId = async (paramsId) => {
+	const query = 'SELECT * FROM model_example.user WHERE id = ?';
+	const [ data ] = await connection.execute(query, [paramsId]);
+	return data.find((user) => user.id === Number(paramsId));
+};
 module.exports = {
 	getAllUser,
-	createdUser
+	createdUser,
+	foundId,
 };
