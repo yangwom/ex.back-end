@@ -1,8 +1,8 @@
-const mysql = require('mysql2');
+const mysql = require('mysql2/promise');
 
 const connection = mysql.createPool({
 	host: 'localhost',
-	user: 'hoot',
+	user: 'root',
 	password: 'docker',
 	database: 'model_example'
 });
