@@ -35,8 +35,9 @@ router.get('/:id', async (req, res)=> {
 
 router.put('/:id', validateName, validateLastName, validateEmail, validatepassword, async (req, res)=> {
 	const { id } = req.params;
-	const updateId = await dataUser.updateUser(id);
-	return res.status(200).json(updateId);
+	const { firstName, lastName, email, password } = req.body;
+	const updadte = await dataUser.updateUser(id, firstName, lastName, email, password);
+	return res.status(200).json(updadte);
 	
 });
 
