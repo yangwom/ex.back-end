@@ -17,8 +17,17 @@ const foundId = async (paramsId) => {
 	const [ data ] = await connection.execute(query, [paramsId]);
 	return data.find((user) => user.id === Number(paramsId));
 };
+
+const updateUser = async (id)  => {
+	const query =
+('UPDATE model_example.user SET firt_name = "carol", last_name = "santana", email = "santana@gmail.com"   WHERE id = ?');
+	const [ data ] = await connection.execute(query, [id]);
+	return data.find((user) => user.id === Number(id));
+};
+
 module.exports = {
 	getAllUser,
 	createdUser,
 	foundId,
+	updateUser
 };
