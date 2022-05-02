@@ -1,5 +1,6 @@
 const express = require('express');
 const routerUser = require('./routers/routerUser');
+const errorMiddleware = require('./middleware/errorMiddleware');
 
 const app = express();
 
@@ -12,5 +13,6 @@ app.get('/', (req, res) => {
 }); 
 
 app.use('/user', routerUser);
+app.use(errorMiddleware);
 
 app.listen(PORT, ()=> console.log(`ouvindo na porta ${PORT}`));
