@@ -36,11 +36,17 @@ app.get('/authors/:id', async (req, res) => {
 });
 
 app.get('/books', async (req, res) => {
- const { author } = req.query
- const dataBook  = await databook.findQuery(author)
- if(!dataBook.length) return res.status(404).json({ message: 'Not found'});
-return res.status(200).json(dataBook)
-})
+    const data = await databook.getAllBook()
+    return res.status(200).json(data);
+      })
+
+app.get('/books/search', async (req, res) => {
+    const { author } = req.query
+    const dataBook  = await databook.findQuery(author)
+    if(!dataBook.length) return res.status(404).json({ message: 'Not found'});
+   return res.status(200).json(dataBook)
+   })
+   
 
 app.get('/books/:id', async (req, res)=> {
 const { id } = req.params;
