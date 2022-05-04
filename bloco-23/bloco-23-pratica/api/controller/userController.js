@@ -16,7 +16,7 @@ const userAll = async (req, res, next) => {
 		const data = await services.getAll();
 		return res.status(200).json(data);
 	} catch(err) {
-		return next(err);
+		next(err);
 	}
 };
 	
@@ -27,14 +27,27 @@ const findUser =  async (req, res, next)=> {
 		const dataId = await services.userFindId(id);
 		return res.status(200).json(dataId);
 	} catch (err) {
-		return next(err);
+		next(err);
 	}
 	
+	
+};
+
+const updateUser = async (req, res, next)=> {
+	const { id } = req.params;
+	const { firstName, lastName, email, password } = req.body;
+	try {
+		const updadte = await services.updateUser(id, firstName, lastName, email, password);
+		return res.status(200).json(updadte);
+	}catch(err) {
+		next(err);
+	}
 	
 };
 
 module.exports = {
 	created,
 	userAll,
-	findUser
+	findUser,
+	updateUser
 };
