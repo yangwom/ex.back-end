@@ -13,7 +13,12 @@ const createdUser = async (firstName, lastName, email) => {
 
 	const userCreated = await users.createdUser(firstName, lastName, email);
 
-	return userCreated;
+	return {
+		id:userCreated.insertId,
+		firstName,
+		lastName,
+		email
+	}; 
 };
 
 const updateUser = async (id, firstName, lastName, email) => {
@@ -27,7 +32,7 @@ const updateUser = async (id, firstName, lastName, email) => {
 
 const getAll = async () => {
 	const data =  await users.getAllUser(); 
-	if(data.length) return  [] ;
+	if(!data.length) return  [] ;
 	return data;
 };
 
