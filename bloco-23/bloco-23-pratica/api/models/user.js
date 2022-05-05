@@ -9,7 +9,7 @@ const getAllUser = async () => {
 const foundId = async (paramsId) => {
 	const query = 'SELECT * FROM model_example.user WHERE id = ?';
 	const [ data ] = await connection.execute(query, [paramsId]);
-	return data.find((user) => user.id === Number(paramsId));
+	return data.filter((user) => user.id === Number(paramsId));
 };
 
 const updateUser = async (id, firstName, lastName, email)  => {
