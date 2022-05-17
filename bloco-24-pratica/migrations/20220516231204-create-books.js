@@ -2,10 +2,10 @@
 
 module.exports = {
   async up (queryInterface, Sequelize) {
-    const books = queryInterface.createTable("books", {
+    const books = await queryInterface.createTable("books", {
       id: {
       allowNull: false,
-      autoIcrement: true,
+      autoIncrement: true,
       primaryKey: true,
       type: Sequelize.INTEGER
       },
@@ -30,20 +30,16 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       },
-      
-      update:{
+
+      updatedAt:{
         allowNull: false,
         type: Sequelize.DATE,
       },
-    })
+    });
+    return books
   },
 
   async down (queryInterface, Sequelize) {
-    /**
-     * Add reverting commands here.
-     *
-     * Example:
-     * await queryInterface.dropTable('users');
-     */
+    await queryInterface.dropTable("books")
   }
 };
