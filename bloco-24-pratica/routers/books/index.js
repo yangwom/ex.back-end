@@ -5,7 +5,8 @@ const controllers = require('../../controllers/booksControllers')
 const routerBooks = express.Router();
 
 
-routerBooks.use('/', controllers.getAll)
+routerBooks.get('/', controllers.getAll);
+routerBooks.get('/:id', controllers.getById);
 
 
 

@@ -5,8 +5,18 @@ const getAll = async (req, res, next) => {
   try {
     const data = await services.getAll();
     return res.status(200).json(data);
+  } catch (err) {
+    next(err)
+  }
+}
 
-  } catch(err) {
+const getById = async (req, res, next) => {
+  const { id } = req.params;
+
+  try {
+    const data = await services.getById(id)
+    return res.status(200).json(data);
+  } catch (err) {
     next(err)
   }
 }
@@ -14,4 +24,5 @@ const getAll = async (req, res, next) => {
 
 module.exports = {
   getAll,
+  getById,
 }
