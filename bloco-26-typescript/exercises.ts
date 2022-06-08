@@ -31,9 +31,11 @@ type orName = {
     age: number;
 }
 
+const list: [string, number, boolean][] = [['yang' , 18, true],['yang' , 18, true] ]
+
 const arrayObject: orName[] = [{ name: 'oi', age: 18 }]
 
-console.log(arrayObject)
+console.log(arrayObject, list)
 
 getArray([1,2,3,3,4, 'esse são os numeros'])
 
