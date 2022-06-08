@@ -1,3 +1,5 @@
+"use strict";
+exports.__esModule = true;
 var valordaSoma = function (result) {
     console.log(result.a + result.b);
 };
