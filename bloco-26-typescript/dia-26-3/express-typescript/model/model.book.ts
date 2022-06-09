@@ -3,7 +3,7 @@ import Book from "../interfaces/interfacer";
 import { ResultSetHeader, RowDataPacket } from "mysql2";
 
 export default {
-  async getAll(): Promise<RowDataPacket[]> {
+  async getAll() {
 
     const query: string = "SELECT * FROM books";
 
