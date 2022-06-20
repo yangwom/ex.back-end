@@ -22,13 +22,3 @@ class Person {
 const seusDados = new Person("yang", 22, "preta", 29837345563);
 
 seusDados.idetificar();
-
-/*
-  Saída:
-  Creating person Maria
-  Creating person João
-  Maria 171 58
-  João 175 66
-  Maria: zzzzzzz
-  João: zzzzzzz
-  */
