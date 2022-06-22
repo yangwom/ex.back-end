@@ -1,11 +1,12 @@
 import Character from "./Character";
-
-class meleeCharacter extends Character {
+class MeleeCharacter extends Character {
   talk(): void {
-   console.log(`${this.name} esta falando` )
-  } 
+    console.log(`${this.name} esta falando`);
+  }
 
   specialMove(): void {
-    console.log(`${this.name} esta correndo em alta velocidade`)
+    console.log(`${this.name} esta correndo em alta velocidade`);
   }
 }
+
+export default MeleeCharacter
