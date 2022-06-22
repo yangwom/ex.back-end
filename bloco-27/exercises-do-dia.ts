@@ -18,17 +18,17 @@ class student {
 		return (this._name = _name);
 	}
 
-	notasDaProva(notas: Array<number>) {
+	notasDaProva(notas: Array<number>): number[] {
 		if (notas.length > 4) throw new Error("so pode possuir 4 notas");
 		return (this._notasDaProva = notas);
 	}
 
-	notasDoTrabalho(notas: Array<number>) {
+	notasDoTrabalho(notas: Array<number>): number[] {
 		if (notas.length > 2)
 			throw new Error(
 				"só pode possuir 2 notas de trabalhos."
 			);
-		this._notasDoTrabalho = notas;
+		return this._notasDoTrabalho = notas;
 	}
 }
 
